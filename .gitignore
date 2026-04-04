@@ -1,0 +1,18 @@
+# Build directories
+Debug/
+Release/
+
+# Compiled Object files
+*.o
+*.elf
+*.bin
+*.hex
+*.list
+*.map
+*.su
+*.cyclo
+*.d
+
+# OS generated files
+.DS_Store
+Thumbs.db
