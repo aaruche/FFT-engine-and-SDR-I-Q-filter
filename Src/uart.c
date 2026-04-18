@@ -82,7 +82,7 @@ void uart2_write(int ch)
 static uint16_t compute_uart_bd(uint32_t periph_clk, uint32_t baudrate)
 {
 	 return ((periph_clk + (baudrate/2U)) / baudrate);
-}
+ }
 
 // 5. 2. Configure Baudrate
 static void uart2_set_baudrate(uint32_t periph_clk, uint32_t baudrate)
