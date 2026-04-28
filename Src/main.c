@@ -5,12 +5,12 @@
 #include "systick.h"
 #include <math.h>
 
-#include "fft.h" // This now holds your struct definition!
+#include "fft.h" 
 
 #define FFT_SIZE 256
 #define PI 3.14159265359f
 
-// 1. Instantiate a SINGLE array of our new Struct
+//  Instantiate a SINGLE array of our new Struct
 complex_t sdr_buffer[FFT_SIZE];
 
 // Prototypes for main.c only
@@ -27,10 +27,10 @@ int main()
     uart_tx_init();
 //    systick_counter_init();
 
-    // 1. Generate the test data into our struct array
+    //  Generate the test data into our struct array
     prep_fft_data(sdr_buffer);
 
-    // 2. Run the entire DSP pipeline with ONE function call
+    //  Run the entire DSP pipeline with ONE function call
 //    g_before = SysTick->VAL;
 
     process_sdr_signal(sdr_buffer, FFT_SIZE);
@@ -38,7 +38,7 @@ int main()
 //    g_after = SysTick->VAL;
 //    g_time_taken = g_before - g_after;
 
-    // 3. Verify the output
+    //  Verify the output
     verify_signal_accuracy(sdr_buffer);
 
     while(1)
