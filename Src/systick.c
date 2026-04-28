@@ -1,30 +1,30 @@
 #include "systick.h"
 #include "core_cm4.h" // Provides the SysTick structure and bit masks
 
-/* * The clock frequency should match your system.
- * Since your board defaults to 4MHz, use 4000000.
+/* 
+defaults to 4MHz, use 4000000.
  */
 #define clk    4000000
 
 void systick_counter_init(void)
 {
-    /* 1. Disable SysTick before configuration */
+    /*  Disable SysTick before configuration */
     // This clears all control bits, ensuring a clean state
     SysTick->CTRL = 0;
 
-    /* 2. Load the Reload Value Register */
+    /*  Load the Reload Value Register */
     // (clk/1000) calculates the cycles needed for 1ms
     SysTick->LOAD = (clk / 1000) - 1;
 
-    /* 3. Clear the Current Value Register */
+    /*  Clear the Current Value Register */
     // Writing any value to VAL resets the counter to 0 and clears the COUNTFLAG
     SysTick->VAL = 0;
 
-    /* 4. Select the internal clock source */
+    /* Select the internal clock source */
     // CLKSOURCE_Msk sets bit 2 to 1 (Processor Clock)
     SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk;
 
-    /* 5. Enable the SysTick timer */
+    /*  Enable the SysTick timer */
     // ENABLE_Msk sets bit 0 to 1
     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
 }
